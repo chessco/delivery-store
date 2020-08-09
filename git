@@ -1,2 +1,15 @@
+Initial
 git status
 git init
+git add .
+git -m "mensaje"
+git remote add origin https://github.com/chessco/
+git pull origin master 
+git push -u origin master
+
+Updates
+
+git status
+git add .
+git -m "mensaje"
+git push origin master
