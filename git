@@ -11,5 +11,5 @@ Updates
 
 git status
 git add .
-git -m "mensaje"
+git commit -m "mensaje"
 git push origin master
