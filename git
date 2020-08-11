@@ -13,3 +13,8 @@ git status
 git add .
 git commit -m "mensaje"
 git push origin master
+
+https://github.com/rgl/redis/downloads
+https://github.com/qishibo/AnotherRedisDesktopManager/releases
+https://github.com/microsoftarchive/redis/releases/tag/win-2.8.2104
+https://www.it-swarm.dev/es/windows/como-ejecuto-redis-en-windows/972699677/
