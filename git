@@ -18,3 +18,15 @@ https://github.com/rgl/redis/downloads
 https://github.com/qishibo/AnotherRedisDesktopManager/releases
 https://github.com/microsoftarchive/redis/releases/tag/win-2.8.2104
 https://www.it-swarm.dev/es/windows/como-ejecuto-redis-en-windows/972699677/
+
+clone
+$ git clone https://github.com/libgit2/libgit2
+
+ssh-keygen
+ C:\Users\your_username\.ssh\id_rsa. 
+
+ git clone https://github.com/flutter/flutter.git -b stable
+
+
+dotnet tool install --global dotnet-ef
+dotnet ef migrations add InitialCreate

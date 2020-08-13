@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Infrastructure.Data;
+using Infrastructure.Identity;
 using AutoMapper;
 using API.Helpers;
 using API.Middleware;
@@ -29,6 +30,11 @@ namespace API
             services.AddControllers();
             services.AddDbContext<StoreContext>(X=>
                 X.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+            
+             services.AddDbContext<AppIdentityDbContext>(x => 
+            {
+                x.UseSqlite(_config.GetConnectionString("IdentityConnection"));
+            });
 
             services.AddSingleton<IConnectionMultiplexer>(c=> {
                 var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"),
@@ -37,6 +43,7 @@ namespace API
             });
 
             services.AddApplicationServices();
+            services.AddIdentityServices(_config);
             services.AddSwaggerDocumentation();
             services.AddCors(opt => 
             {
@@ -45,6 +52,7 @@ namespace API
                     policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
                 });
             });
+
 
         }
 
@@ -61,6 +69,8 @@ namespace API
             app.UseStaticFiles();
 
             app.UseCors("CorsPolicy");
+
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseSwaggerDocumention();
             
